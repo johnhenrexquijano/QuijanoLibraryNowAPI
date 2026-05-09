@@ -10,6 +10,6 @@ RUN dotnet restore "QuijanoLibraryNowAPI/QuijanoLibraryNowAPI.csproj"
 RUN dotnet build "QuijanoLibraryNowAPI/QuijanoLibraryNowAPI.csproj" -c Release -o /app/out
 
 FROM base AS final
-WORKDIR /app
+WORKDIR "/src/QuijanoLibraryNowAPI"
 COPY --from=build /app/out .
 ENTRYPOINT ["dotnet", "QuijanoLibraryNowAPI.dll"]
